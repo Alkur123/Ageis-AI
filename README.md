@@ -24,9 +24,9 @@ When it blocks, it explains *why*, cites the regulation, and logs everything. Wh
 
 ## Live Demo
 
-**Try it now →** [https://dnrvkokqdpg2n.cloudfront.net/](https://dnrvkokqdpg2n.cloudfront.net/)
+**Try it now →** [Aegis AI Live Demo](https://dnrvkokqdpg2n.cloudfront.net/)
 
-![Aegis AI in action — self-harm blocked, jailbreak blocked, safe query allowed](./docs/demo.gif)
+<img src="docs/demo.gif" alt="Aegis AI in action" width="100%" />
 
 Test these to see the engine in action:
 
@@ -241,16 +241,26 @@ This is what ₹250 Crore penalty exposure looks like from the inside — and wh
 
 ---
 
+## Research
+
+Published findings presented at **FoCS 2025**.
+
+---
+
+## Screenshots
+
+See `docs/` for system screenshots: decision dashboard, audit trail, session intelligence panels, evidence spans, and risk trajectory visualization.
+
+---
 
 ## Built By
 
-**Jaswanth** — B.Tech AI & ML, SRM Chenna
-i  
+**Jaswanth** — Final Year B.Tech AI & ML, SRM Chennai  
 Founder, Aegis AI
 
 *Building the governance layer that Indian AI cannot scale without.*
 
-[LinkedIn](https://linkedin.com) · [Email for partnerships](mailto:lathajaswanth7@gmail.com)
+[LinkedIn](https://www.linkedin.com/in/jaswanth-a-97a074342/) · [Email for partnerships](mailto:jaswanthalkur@gmail.com[email_address])
 
 ---
 
