@@ -241,21 +241,11 @@ This is what ₹250 Crore penalty exposure looks like from the inside — and wh
 
 ---
 
-## Research
-
-Published findings presented at **FoCS 2025**.
-
----
-
-## Screenshots
-
-See `docs/` for system screenshots: decision dashboard, audit trail, session intelligence panels, evidence spans, and risk trajectory visualization.
-
----
 
 ## Built By
 
-**Jaswanth** — Final Year B.Tech AI & ML, SRM Chennai  
+**Jaswanth** — B.Tech AI & ML, SRM Chenna
+i  
 Founder, Aegis AI
 
 *Building the governance layer that Indian AI cannot scale without.*
