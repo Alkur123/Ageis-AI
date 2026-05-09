@@ -108,10 +108,10 @@ When it **blocks**, it explains *why*, cites the exact regulation article, and w
 
 | Layer | URL |
 |---|---|
-| **Frontend (CloudFront)** | https://dnrvkokqdpg2n.cloudfront.net |
-| **API (CloudFront → EC2)** | https://d23ikxcdm4p72j.cloudfront.net |
-| **API Docs (Swagger)** | https://d23ikxcdm4p72j.cloudfront.net/docs |
-| **Health** | https://d23ikxcdm4p72j.cloudfront.net/api/health |
+| **Frontend (CloudFront)** | https://d1qmmfoekk6xmp.cloudfront.net/ |
+| **API (CloudFront → EC2)** | https://d2a327oc9vp6cr.cloudfront.net/api |
+| **API Docs (Swagger)** | https://d2a327oc9vp6cr.cloudfront.net/docs |
+| **Health** | https://d2a327oc9vp6cr.cloudfront.net/api/health |
 | **PyPI Package** | https://pypi.org/project/aegis-ai-sdk/ |
 
 ### Try these queries to see the engine react
@@ -841,78 +841,6 @@ curl https://d23ikxcdm4p72j.cloudfront.net/api/regulations | jq
 
 ---
 
-## Project Structure
-
-```
-chakravyuha/
-├── backend/
-│   ├── server.py                         # FastAPI app + 35 routes
-│   ├── engine/
-│   │   ├── pipeline.py                   # 11-ring orchestrator
-│   │   ├── normalizer.py                 # Ring 0 — NFKC, leet, Indic
-│   │   ├── redactor.py                   # PII regex (11 types)
-│   │   ├── attack_heuristics.py          # 16 attack signal vectors
-│   │   ├── intent_guard.py               # 3-layer multilingual guard
-│   │   ├── jurisdiction.py               # MaxMind + tenant-declared
-│   │   ├── semantic_engine.py            # FAISS + ONNX
-│   │   ├── ring3_retrieval.py            # Constitutional retrieval
-│   │   ├── claim_parser.py               # Claim extraction
-│   │   ├── session.py                    # Temporal-decay session memory
-│   │   ├── policy.py                     # 9 deterministic rules
-│   │   ├── policy_composer.py            # 5-rule multi-reg composition
-│   │   ├── llm_service.py                # Groq + Ollama
-│   │   ├── ring5_stability.py            # 3-paraphrase concurrent check
-│   │   ├── ring7.py                      # Post-gen verifier
-│   │   ├── ring8.py                      # Atomic 3-way commit gate
-│   │   ├── ring10_hitl.py                # Redis-priority HITL queue
-│   │   ├── audit_vault.py                # SHA-256 hash chain
-│   │   ├── tenant.py                     # PG-backed tenant registry
-│   │   ├── federated.py                  # Federated learning
-│   │   ├── prometheus_metrics.py         # /metrics exposition
-│   │   └── explainability.py             # Causal trace
-│   ├── regulations/                      # 6 plugins / 97 clauses
-│   │   ├── dpdp_2023.py
-│   │   ├── gdpr.py
-│   │   ├── eu_ai_act.py
-│   │   ├── hipaa.py
-│   │   ├── ccpa.py
-│   │   └── sebi_rbi.py
-│   ├── eval/                             # Adversarial benchmark suite
-│   │   ├── adversarial_dataset_v3.json       # 1,001 samples · 97 attacks (Benchmark 1)
-│   │   ├── harmful_behaviors.csv             # AdvBench, Zou et al. 2023, 520 samples (Benchmark 2)
-│   │   ├── redteam_eval_benchmark_1k (1).csv # Hard Redteam 1K, 1,000 samples (Benchmark 4)
-│   │   ├── run_benchmark_eval.py
-│   │   ├── run_advbench_eval.py
-│   │   ├── run_comparison_benchmark.py
-│   │   └── results/                      # All eval reports + JSON
-│   ├── precomputed_embeddings.npy        # 8,369 vectors · 384-dim (live)
-│   ├── precomputed_labels.json
-│   ├── onnx_model/                       # ONNX runtime artifacts
-│   ├── Dockerfile · docker-compose.yml
-│   ├── requirements.txt · gunicorn.conf.py
-│   ├── AWS_DEPLOYMENT_PLAN.md
-│   └── paper/                            # arXiv submission
-├── frontend/                             # React 19 + Vite + Tailwind
-│   ├── src/
-│   │   ├── App.jsx                       # Owns all state, 5-tab layout
-│   │   ├── api.js                        # 35-endpoint client
-│   │   └── components/                   # 25+ specialised components
-│   ├── package.json · vite.config.js · tailwind.config.js
-│   └── dist/                             # Build output → S3
-├── sdk/python/                           # `pip install aegis-ai-sdk`
-│   └── aegis/                            # client · models · CLI · shims
-├── deploy/                               # AWS infra-as-code
-│   ├── cf-frontend-config.json
-│   ├── cf-backend-config.json
-│   ├── ecs-trust-policy.json
-│   ├── s3-bucket-policy.json
-│   └── task-definition.json
-├── infra/waf.tf                          # Terraform WAF
-├── docs/                                 # Architecture · Design · Requirements
-└── tests/                                # Pytest suite
-```
-
----
 
 ## Research Contributions
 
